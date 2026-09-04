@@ -1,0 +1,22 @@
+class Solution {
+public:
+    bool isAnagram(string s, string t) 
+    {
+        int n = s.length();
+        int m = t.length();
+        if(m != n) return false;
+
+        vector<int> mp(26,0);
+        for(int i = 0; i < n; i++)
+        {
+            mp[s[i] - 'a']++;
+            mp[t[i] - 'a']--;
+        }
+        for(auto it : mp)
+        {
+            if(it != 0) return false;
+        }
+        return true;
+    
+    }
+};
